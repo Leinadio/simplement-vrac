@@ -1,0 +1,46 @@
+      <div class="how-grid">
+        <ol class="steps" id="steps">
+          <li class="step on"><button data-step="0"><span class="n">1</span><span><strong>Apportez vos contenants</strong><small>Bocaux, sachets en tissu, boîtes… ou empruntez ceux de la boutique.</small></span></button></li>
+          <li class="step"><button data-step="1"><span class="n">2</span><span><strong>Faites-les peser vides</strong><small>On note le poids du contenant : c'est la tare.</small></span></button></li>
+          <li class="step"><button data-step="2"><span class="n">3</span><span><strong>Remplissez</strong><small>La quantité que vous voulez, une poignée ou un kilo.</small></span></button></li>
+          <li class="step"><button data-step="3"><span class="n">4</span><span><strong>Repesez</strong><small>La balance soustrait automatiquement le poids du bocal.</small></span></button></li>
+          <li class="step"><button data-step="4"><span class="n">5</span><span><strong>Payez seulement le contenu</strong><small>Pas l'emballage, pas le marketing : juste le produit.</small></span></button></li>
+        </ol>
+
+        <div class="scale-card reveal" aria-live="polite">
+          <svg viewBox="0 0 420 330" role="img" aria-labelledby="scaleTitle">
+            <title id="scaleTitle">Une balance avec un bocal qui se remplit selon l'étape choisie</title>
+            <!-- bocal -->
+            <g id="scaleJar">
+              <clipPath id="jarClip"><rect x="150" y="54" width="120" height="150" rx="28"/></clipPath>
+              <g clip-path="url(#jarClip)">
+                <rect id="fillRect" x="150" y="54" width="120" height="150" fill="url(#p-lentils)" style="transform:translateY(150px)"/>
+              </g>
+              <rect x="150" y="54" width="120" height="150" rx="28" fill="rgba(255,255,255,.25)" stroke="#1D2A20" stroke-width="3"/>
+              <rect x="162" y="38" width="96" height="18" rx="4" fill="#D4553A" stroke="#1D2A20" stroke-width="3"/>
+              <path d="M166 80v80" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".6"/>
+              <rect x="164" y="112" width="92" height="34" rx="3" fill="#E3CDA6" stroke="#1D2A20" stroke-width="1.5"/>
+              <text x="210" y="134" text-anchor="middle" font-family="Courier Prime, monospace" font-size="12" font-weight="700" fill="#2b2015">LENTILLES</text>
+            </g>
+            <!-- balance -->
+            <rect x="110" y="206" width="200" height="12" rx="6" fill="#1D2A20"/>
+            <rect x="200" y="218" width="20" height="16" fill="#1D2A20"/>
+            <path d="M70 234h280l-16 72a12 12 0 0 1-12 9H98a12 12 0 0 1-12-9z" fill="#E9A93A" stroke="#1D2A20" stroke-width="3"/>
+            <rect x="140" y="252" width="140" height="44" rx="8" fill="#1D2A20"/>
+            <text id="scaleReading" x="210" y="283" text-anchor="middle" font-family="Courier Prime, monospace" font-size="24" font-weight="700" fill="#A9C77A">-,--- kg</text>
+            <circle cx="112" cy="274" r="9" fill="#F5EFE3" stroke="#1D2A20" stroke-width="2.5"/>
+            <circle cx="308" cy="274" r="9" fill="#F5EFE3" stroke="#1D2A20" stroke-width="2.5"/>
+            <!-- ticket -->
+            <g id="ticket" opacity="0" style="transition:opacity .4s">
+              <path d="M300 40h96v92l-8-6-8 6-8-6-8 6-8-6-8 6-8-6-8 6-8-6-8 6-8-6z" fill="#fff" stroke="#1D2A20" stroke-width="2.5"/>
+              <text x="348" y="66" text-anchor="middle" font-family="Courier Prime, monospace" font-size="11" fill="#1D2A20">LENTILLES</text>
+              <text x="348" y="86" text-anchor="middle" font-family="Courier Prime, monospace" font-size="15" font-weight="700" fill="#1D2A20">0,500 kg</text>
+              <text x="348" y="106" text-anchor="middle" font-family="Courier Prime, monospace" font-size="10" fill="#4A5649">bocal : 0 €</text>
+            </g>
+          </svg>
+          <div class="caption">
+            <p id="scaleCaption">Un bocal propre, un sac en tissu, une boîte : tout fait l'affaire.</p>
+            <button class="btn btn-primary" id="nextStep" style="cursor:pointer;font:inherit;font-weight:600;padding:.7em 1.2em;white-space:nowrap">Étape suivante</button>
+          </div>
+        </div>
+      </div>

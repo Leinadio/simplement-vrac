@@ -4,467 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<link rel="icon" type="image/png" href="img/logo/favicon.png">
-<link rel="apple-touch-icon" href="img/logo/apple-touch-icon.png">
+<title>Simplement Vrac · Épicerie bio, zéro déchet et locale à Noisy-le-Grand</title>
+<meta name="description" content="Épicerie bio, zéro déchet et locale au centre de Noisy-le-Grand : vrac, primeur, fromagerie, consigne et plus de 2000 produits bio.">
+<link rel="icon" type="image/png" href="/img/logo/favicon.png">
+<link rel="apple-touch-icon" href="/img/logo/apple-touch-icon.png">
 <meta name="theme-color" content="#F5EFE3">
-<title>Simplement Vrac · Épicerie bio, vrac et locale à Noisy-le-Grand</title>
-<meta name="description" content="Épicerie bio, zéro déchet et locale au 134 rue Pierre Brossolette à Noisy-le-Grand. Vrac, primeur, fromagerie, consigne, click & collect.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --paper:#F5EFE3;
-    --paper-2:#EDE4D3;
-    --ink:#1D2A20;
-    --ink-soft:#4A5649;
-    --leaf:#2D5A3B;
-    --leaf-deep:#1E3F29;
-    --sprout:#A9C77A;
-    --tomato:#D4553A;
-    --honey:#E9A93A;
-    --kraft:#B8936A;
-    --kraft-bg:linear-gradient(rgba(236,214,176,.6),rgba(236,214,176,.6)), url(img/kraft.jpg);
-    --line:rgba(29,42,32,.14);
-    --radius:22px;
-    --display:"Young Serif", Georgia, serif;
-    --body:"Hanken Grotesk", system-ui, sans-serif;
-    --label:"Courier Prime", ui-monospace, monospace;
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth;overflow-x:clip}
-  body{
-    overflow-x:clip;margin:0;font-family:var(--body);color:var(--ink);background:var(--paper);
-    font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
-  }
-  body::before{ /* grain papier */
-    content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.35;mix-blend-mode:multiply;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .38 0 0 0 0 .28 0 0 0 .18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-  img,svg{display:block;max-width:100%}
-  a{color:inherit}
-  .wrap{width:min(1240px,100% - 48px);margin-inline:auto}
-  h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.05;margin:0;letter-spacing:-.01em}
-  h2{font-size:clamp(2.2rem,4.6vw,3.6rem)}
-  h3{font-size:1.45rem}
-  p{margin:0}
-  em.hand{font-style:normal;color:var(--tomato)}
-  .tag{
-    display:inline-flex;align-items:center;gap:.5em;font-family:var(--label);font-size:.82rem;
-    letter-spacing:.06em;text-transform:uppercase;padding:.45em .9em .4em;border-radius:6px;line-height:1.4;max-width:100%;
-    background:var(--kraft-bg) center/300px;color:#2b2015;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);
-  }
-  .tag::before{flex:none;content:"";width:7px;height:7px;border-radius:50%;background:var(--paper);box-shadow:inset 0 0 0 1.5px rgba(0,0,0,.35)}
-  .btn{
-    display:inline-flex;align-items:center;gap:.6em;padding:.95em 1.5em;border-radius:999px;font-weight:600;
-    text-decoration:none;font-size:1rem;border:2px solid var(--ink);transition:transform .2s, background .2s, color .2s, box-shadow .2s;
-  }
-  .btn svg{width:18px;height:18px;transition:transform .2s}
-  .btn:hover svg{transform:translateX(3px)}
-  .btn-primary{background:var(--ink);color:var(--paper);box-shadow:4px 4px 0 var(--tomato)}
-  .btn-primary:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--tomato)}
-  .btn-ghost{background:transparent;color:var(--ink)}
-  .btn-ghost:hover{background:var(--ink);color:var(--paper)}
-  :focus-visible{outline:3px solid var(--honey);outline-offset:3px;border-radius:6px}
-
-  /* ---------- Bandeau infos ---------- */
-  .infobar{background:var(--ink);color:#E8E1D2;font-size:.88rem}
-  .infobar .wrap{display:flex;justify-content:space-between;gap:1rem;padding:.55rem 0;flex-wrap:wrap}
-  .infobar a{text-decoration:none}
-  .infobar a:hover{text-decoration:underline}
-  .status{display:inline-flex;align-items:center;gap:.55em}
-  .status .dot{width:9px;height:9px;border-radius:50%;background:var(--sprout);box-shadow:0 0 0 0 rgba(169,199,122,.7);animation:pulse 2s infinite}
-  .status.closed .dot{background:#C9806E;animation:none}
-  @keyframes pulse{70%{box-shadow:0 0 0 8px rgba(169,199,122,0)}100%{box-shadow:0 0 0 0 rgba(169,199,122,0)}}
-  .infobar .meta{display:flex;gap:1.4rem;opacity:.85}
-
-  /* ---------- Navigation ---------- */
-  header.nav{position:sticky;top:0;z-index:50;background:rgba(245,239,227,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s}
-  header.nav.scrolled{border-color:var(--line)}
-  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:78px;gap:1.5rem}
-  .logo{display:flex;align-items:center;gap:.7rem;text-decoration:none}
-  .logo img{height:58px;width:auto}
-  .logo-badge{display:inline-flex;background:var(--paper);padding:.6rem .9rem;border-radius:16px}
-  .logo-badge img{height:52px}
-  .nav ul{display:flex;gap:2rem;list-style:none;margin:0;padding:0}
-  .nav ul a{white-space:nowrap;text-decoration:none;font-weight:500;font-size:.98rem;position:relative}
-  .nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--tomato);transform:scaleX(0);transform-origin:left;transition:transform .25s}
-  .nav ul a:hover::after{transform:scaleX(1)}
-  .nav .actions{display:flex;gap:.8rem;align-items:center}
-  .nav .btn{padding:.7em 1.2em;font-size:.92rem;white-space:nowrap}
-  .icon-btn{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:1.5px solid var(--line);text-decoration:none;transition:background .2s}
-  .icon-btn:hover{background:var(--paper-2)}
-  .icon-btn svg{width:20px;height:20px}
-  .burger{display:none}
-  .menu-cta{display:none}
-
-  /* ---------- Hero ---------- */
-  .hero{padding:clamp(2.5rem,6vw,5rem) 0 4rem}
-  .hero .wrap{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(2.5rem,5vw,4rem)}
-  .hero .intro{display:flex;flex-direction:column;align-items:center;text-align:center}
-  .hero h1{font-size:clamp(2.7rem,6.4vw,5.6rem);margin:1.4rem 0 1.5rem}
-  .hero h1 .line{display:block;overflow:hidden;padding-top:.08em;margin-top:-.08em}
-  .hero h1 .line > span{display:block;animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
-  .hero h1 .line:nth-child(2) > span{animation-delay:.12s}
-  .hero h1 .line:nth-child(3) > span{animation-delay:.24s}
-  @keyframes rise{from{transform:translateY(105%)}to{transform:none}}
-  .hero .lead{font-size:1.25rem;color:var(--ink-soft);max-width:44ch;animation:fade .8s .45s both}
-  .hero .ctas{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:2.2rem;animation:fade .8s .55s both}
-  .proofs{display:flex;gap:2.4rem;justify-content:center;margin-top:2.6rem;flex-wrap:wrap;text-align:left;animation:fade .8s .7s both}
-  .proof{display:flex;align-items:center;gap:.7rem;font-size:.93rem;line-height:1.3}
-  .proof b{font-family:var(--display);font-weight:400;font-size:1.9rem;color:var(--leaf)}
-  @keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-
-  .front{position:relative;animation:fade 1s .2s both}
-  .shopfront{
-    position:relative;aspect-ratio:21/9;border-radius:36px;background:var(--leaf);
-    overflow:hidden;box-shadow:0 30px 60px -30px rgba(29,42,32,.55);
-  }
-  .shopfront::before{ /* rayures store */
-    content:"";position:absolute;left:0;right:0;top:0;height:clamp(40px,5.5vw,70px);
-    background:repeating-linear-gradient(90deg,var(--paper) 0 34px,var(--tomato) 34px 68px);
-    -webkit-mask:radial-gradient(18px 14px at 17px 100%,transparent 98%,#000) 0 0/34px 100% repeat-x;
-            mask:radial-gradient(18px 14px at 17px 100%,transparent 98%,#000) 0 0/34px 100% repeat-x;
-    z-index:2;
-  }
-  .hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 62%}
-  .shopfront::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(29,42,32,.3),transparent 40%);z-index:1}
-  .shopfront .sign{
-    position:absolute;top:calc(clamp(40px,5.5vw,70px) + 18px);left:50%;transform:translateX(-50%);z-index:2;white-space:nowrap;
-    background:var(--paper);color:var(--ink);font-family:var(--label);font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;
-    padding:.55em 1.2em;border-radius:999px;box-shadow:0 8px 20px -8px rgba(0,0,0,.4)
-  }
-  .round{position:absolute;left:clamp(-28px,-2vw,-12px);bottom:-48px;width:clamp(120px,17%,210px);aspect-ratio:1;margin:0;border-radius:50%;overflow:hidden;border:7px solid var(--paper);box-shadow:0 18px 30px -14px rgba(0,0,0,.5);z-index:3}
-  .round img{width:100%;height:100%;object-fit:cover}
-  .hang{
-    position:absolute;z-index:4;font-family:var(--label);font-size:.8rem;line-height:1.25;color:#2b2015;
-    padding:.6em .85em;border-radius:5px;background:var(--kraft-bg) center/280px;box-shadow:0 8px 16px -6px rgba(0,0,0,.35);
-    transform-origin:50% -12px;animation:swing 4s ease-in-out infinite;
-  }
-  .hang::before{content:"";position:absolute;top:-12px;left:50%;width:1px;height:12px;background:#2b2015}
-  .hang b{display:block;font-size:1.05rem}
-  .hang.h1{right:clamp(-28px,-2vw,-10px);top:30%}
-  .hang.h2{right:22%;bottom:-26px;animation-delay:-1.6s}
-  @keyframes swing{0%,100%{rotate:-3deg}50%{rotate:3deg}}
-
-  /* ---------- Bandeau défilant ---------- */
-  .marquee{background:var(--tomato);color:var(--paper);overflow:hidden;border-block:2px solid var(--ink);transform:rotate(-1.2deg);margin:1rem -1rem 0}
-  .marquee .track{display:flex;gap:2.5rem;width:max-content;padding:.9rem 0;animation:scroll 42s linear infinite;font-family:var(--display);font-size:1.5rem;white-space:nowrap}
-  .marquee .track span::after{content:"✳";margin-left:2.5rem;font-size:1rem;vertical-align:middle;opacity:.8}
-  @keyframes scroll{to{transform:translateX(-50%)}}
-
-  /* ---------- Sections ---------- */
-  section{padding:clamp(4.5rem,9vw,8rem) 0}
-  .section-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:3rem;flex-wrap:wrap}
-  .section-head p{max-width:42ch;color:var(--ink-soft);font-size:1.08rem}
-  .kicker{font-family:var(--label);font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--tomato);margin-bottom:1rem;display:block}
-
-  /* Rayons */
-  .aisles{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
-  .aisle{
-    grid-column:span 2;background:#FBF7EF;border:1.5px solid var(--line);border-radius:var(--radius);
-    display:flex;flex-direction:column;position:relative;overflow:hidden;transition:transform .3s, box-shadow .3s;
-  }
-  .aisle:hover{transform:translateY(-4px);box-shadow:0 22px 40px -24px rgba(29,42,32,.45)}
-  .aisle img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
-  .aisle:hover img{transform:scale(1.05)}
-  .aisle .num{font-family:var(--label);font-size:.8rem;color:var(--ink-soft);display:block;margin-bottom:.4rem}
-  .aisle p{color:var(--ink-soft);font-size:.98rem;margin-top:.45rem}
-  .aisle.big{grid-column:span 3;min-height:420px;border:0}
-  .aisle.over img{position:absolute;inset:0}
-  .aisle.over::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,34,24,0) 35%,rgba(20,34,24,.85))}
-  .aisle.over .txt{position:relative;z-index:1;margin-top:auto;padding:2rem;color:var(--paper)}
-  .aisle.over h3{font-size:2rem}
-  .aisle.over p,.aisle.over .num{color:rgba(245,239,227,.85);max-width:38ch}
-  .aisle.card{padding:10px}
-  .aisle .ph{border-radius:14px;overflow:hidden;aspect-ratio:4/3}
-  .aisle.card .txt{padding:1.1rem .9rem 1.1rem}
-  .aisle.wide{grid-column:span 6;flex-direction:row;padding:10px;align-items:stretch}
-  .aisle.wide .ph{width:38%;aspect-ratio:auto;min-height:230px;flex:none}
-  .aisle.wide .txt{padding:1.8rem 2rem;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
-  .aisle.wide .btn{margin-top:1.2rem}
-
-  /* Ambiance */
-  .mood{padding-top:0}
-  .mosaic{display:grid;grid-template-columns:1.25fr 1fr 1fr;grid-template-rows:280px 280px;gap:18px}
-  .mosaic figure{margin:0;position:relative;border-radius:var(--radius);overflow:hidden}
-  .mosaic img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
-  .mosaic figure:hover img{transform:scale(1.05)}
-  .mosaic .m1{grid-row:span 2}
-  .mosaic figcaption{
-    position:absolute;left:14px;bottom:14px;font-family:var(--label);font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:#2b2015;
-    padding:.45em .8em;border-radius:5px;background:var(--kraft-bg) center/280px;box-shadow:0 6px 14px -6px rgba(0,0,0,.45)
-  }
-
-  /* Comment ça marche */
-  .how{background:var(--leaf-deep);color:var(--paper);border-radius:40px;margin:0 clamp(0px,1.5vw,20px);position:relative;overflow:hidden}
-  .how .kicker{color:var(--sprout)}
-  .how .section-head p{color:rgba(245,239,227,.75)}
-  .how-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(2rem,5vw,5rem);align-items:center}
-  .steps{list-style:none;margin:0;padding:0;display:grid;gap:10px}
-  .step button{
-    all:unset;cursor:pointer;display:grid;grid-template-columns:52px 1fr;gap:1rem;align-items:center;width:100%;box-sizing:border-box;
-    padding:1rem 1.2rem;border-radius:18px;border:1.5px solid rgba(245,239,227,.14);transition:background .25s,border-color .25s;
-  }
-  .step button:hover{background:rgba(245,239,227,.05)}
-  .step button:focus-visible{outline:3px solid var(--honey)}
-  .step .n{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-size:1.4rem;border:1.5px solid rgba(245,239,227,.35);transition:all .25s}
-  .step strong{font-family:var(--display);font-weight:400;font-size:1.3rem;display:block}
-  .step small{display:block;color:rgba(245,239,227,.7);font-size:.95rem;max-height:0;overflow:hidden;transition:max-height .35s ease, margin .35s}
-  .step.on button{background:rgba(245,239,227,.08);border-color:var(--sprout)}
-  .step.on .n{background:var(--sprout);color:var(--leaf-deep);border-color:var(--sprout)}
-  .step.on small{max-height:9em;margin-top:.25rem}
-  .scale-card{background:var(--paper);border-radius:32px;padding:2rem;color:var(--ink);position:relative}
-  .scale-card svg{width:100%;height:auto}
-  .scale-card .caption{display:flex;justify-content:space-between;align-items:center;margin-top:1rem;gap:1rem}
-  .scale-card .caption p{font-size:1rem;color:var(--ink-soft)}
-  #fillRect{transition:transform 1.1s cubic-bezier(.4,.1,.2,1)}
-  #scaleJar{transition:transform .7s cubic-bezier(.3,1.4,.5,1), opacity .4s}
-  .how-notes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:3.5rem}
-  .how-notes div{border-top:1.5px solid rgba(245,239,227,.2);padding-top:1.1rem;font-size:.98rem;color:rgba(245,239,227,.8)}
-  .how-notes b{display:block;font-family:var(--display);font-weight:400;font-size:1.2rem;color:var(--paper);margin-bottom:.3rem}
-
-  /* Producteurs */
-  .filters{display:flex;gap:.6rem;flex-wrap:wrap}
-  .chip{all:unset;cursor:pointer;padding:.55em 1.1em;border-radius:999px;border:1.5px solid var(--ink);font-weight:500;font-size:.93rem;transition:all .2s}
-  .chip:hover{background:var(--paper-2)}
-  .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
-  .chip:focus-visible{outline:3px solid var(--honey);outline-offset:2px}
-  .makers{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px;margin-top:2rem}
-  .maker{
-    position:relative;padding:1.4rem 1.4rem 1.3rem 1.4rem;border-radius:10px;background:var(--kraft-bg) center/420px;color:#271d12;
-    box-shadow:0 1px 0 rgba(0,0,0,.08), 0 14px 24px -18px rgba(0,0,0,.6);transition:transform .3s, opacity .3s;
-    -webkit-mask:radial-gradient(9px at 0 50%,#0000 98%,#000) left/51% 100% no-repeat, radial-gradient(9px at 100% 50%,#0000 98%,#000) right/51% 100% no-repeat;
-            mask:radial-gradient(9px at 0 50%,#0000 98%,#000) left/51% 100% no-repeat, radial-gradient(9px at 100% 50%,#0000 98%,#000) right/51% 100% no-repeat;
-  }
-  .maker:nth-child(3n+1){rotate:-.6deg}
-  .maker:nth-child(3n+2){rotate:.5deg}
-  .maker:hover{transform:translateY(-4px) rotate(0)}
-  .maker.hide{display:none}
-  .maker .where{font-family:var(--label);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:.4em;opacity:.85}
-  .maker .where svg{width:13px;height:13px}
-  .maker h3{font-size:1.4rem;margin:.5rem 0 .3rem}
-  .maker p{font-size:.95rem;line-height:1.45}
-  .maker .top{display:flex;justify-content:space-between;align-items:flex-start;gap:.6rem}
-  .maker .badge{flex:none;font-family:var(--label);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;padding:.25em .55em;border:1.2px solid currentColor;border-radius:4px;rotate:6deg;opacity:.8}
-  .also{margin-top:2rem;color:var(--ink-soft);font-size:1rem}
-  .also b{color:var(--ink);font-weight:600}
-
-  /* Services */
-  .services{background:var(--paper-2)}
-  .svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-  .svc{background:var(--paper);border-radius:var(--radius);padding:2rem 1.6rem;overflow:hidden;display:flex;flex-direction:column;gap:.7rem;border:1.5px solid var(--line)}
-  .svc .ph{margin:-2rem -1.6rem .9rem;aspect-ratio:4/3;overflow:hidden}
-  .svc .ph img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
-  .svc:hover .ph img{transform:scale(1.05)}
-  .svc p{color:var(--ink-soft);font-size:.97rem}
-  .svc a{margin-top:auto;font-weight:600;text-decoration:none;display:inline-flex;gap:.4em;align-items:center;padding-top:.6rem}
-  .svc a:hover{color:var(--tomato)}
-
-  /* Actualités */
-  .news{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:18px}
-  .post{display:flex;flex-direction:column;text-decoration:none;border-radius:var(--radius);overflow:hidden;background:#FBF7EF;border:1.5px solid var(--line);transition:transform .3s, box-shadow .3s}
-  .post:hover{transform:translateY(-4px);box-shadow:0 22px 40px -24px rgba(29,42,32,.45)}
-  .post .art{aspect-ratio:16/10;background:var(--paper-2);display:grid;place-items:center;position:relative;overflow:hidden}
-  .post .art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s}
-  .post:hover .art img{transform:scale(1.05)}
-  .post .body{padding:1.4rem 1.5rem 1.6rem;display:flex;flex-direction:column;gap:.6rem;flex:1}
-  .post time{font-family:var(--label);font-size:.8rem;color:var(--ink-soft);letter-spacing:.05em;text-transform:uppercase}
-  .post h3{font-size:1.35rem;line-height:1.2}
-  .post .more{margin-top:auto;font-weight:600;font-size:.95rem;color:var(--tomato)}
-
-  /* Visite */
-  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:center}
-  .plaque{
-    background:#21543A;color:#fff;border-radius:18px;padding:1.4rem;box-shadow:0 30px 50px -30px rgba(0,0,0,.6), inset 0 0 0 6px #21543A, inset 0 0 0 8px #F2EBDD;
-    text-align:center;position:relative;max-width:520px;margin-inline:auto;rotate:-2deg;
-  }
-  .plaque .in{border:2px solid #F2EBDD;border-radius:10px;padding:2rem 1.5rem 1.7rem}
-  .plaque small{font-family:var(--label);letter-spacing:.24em;text-transform:uppercase;font-size:.8rem;opacity:.85}
-  .plaque strong{display:block;font-family:var(--display);font-weight:400;font-size:clamp(2rem,4vw,3.1rem);line-height:1.05;margin:.6rem 0}
-  .plaque .num{position:absolute;top:-26px;left:-22px;width:86px;height:86px;border-radius:50%;background:var(--tomato);display:grid;place-items:center;font-family:var(--display);font-size:1.6rem;rotate:-10deg;box-shadow:0 10px 20px -8px rgba(0,0,0,.5)}
-  .plaque .screws::before,.plaque .screws::after{content:"";position:absolute;top:50%;width:10px;height:10px;border-radius:50%;background:#F2EBDD;opacity:.7}
-  .plaque .screws::before{left:14px}.plaque .screws::after{right:14px}
-  .hours{width:100%;border-collapse:collapse;margin:1.8rem 0}
-  .hours td{padding:.8rem 0;border-bottom:1.5px dashed var(--line);font-size:1.04rem}
-  .hours td:last-child{text-align:right;font-family:var(--label);white-space:nowrap;padding-left:1rem}
-  .hours tr.today td{font-weight:700;color:var(--leaf)}
-  .hours tr.today td:first-child::after{content:"aujourd'hui";margin-left:.7rem;font-family:var(--label);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;background:var(--sprout);color:var(--leaf-deep);padding:.2em .55em;border-radius:4px;vertical-align:middle}
-  .contact-lines{display:flex;flex-wrap:wrap;gap:1rem 2rem;margin-bottom:2rem}
-  .contact-lines a{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;font-weight:600}
-  .contact-lines a:hover{color:var(--tomato)}
-  .contact-lines svg{width:20px;height:20px}
-
-  /* Newsletter */
-  .letter{padding:0 0 clamp(4.5rem,9vw,8rem)}
-  .letter .box{
-    background:var(--kraft-bg) center/600px;border-radius:32px;padding:clamp(2rem,5vw,4rem);color:#271d12;
-    display:grid;grid-template-columns:1.1fr 1fr;gap:2rem;align-items:center;position:relative;overflow:hidden;
-  }
-  .letter .box::after{content:"";position:absolute;inset:14px;border:2px dashed rgba(39,29,18,.35);border-radius:22px;pointer-events:none}
-  .letter h2{font-size:clamp(2rem,4vw,3rem)}
-  .letter p{margin-top:.9rem;font-size:1.05rem;max-width:40ch}
-  .letter form{display:flex;gap:.6rem;background:var(--paper);padding:.45rem;border-radius:999px;border:2px solid var(--ink);position:relative;z-index:1}
-  .letter input{flex:1;border:0;background:transparent;font:inherit;padding:.6rem 1rem;min-width:0;color:var(--ink)}
-  .letter input:focus{outline:none}
-  .letter form:focus-within{box-shadow:0 0 0 4px rgba(233,169,58,.6)}
-  .letter .btn{border:0;cursor:pointer;font:inherit;font-weight:600}
-  .letter .ok{font-family:var(--label);margin-top:.8rem;min-height:1.4em;position:relative;z-index:1}
-
-  /* Footer */
-  footer{background:var(--ink);color:#D9D2C3;padding:4.5rem 0 2rem;font-size:.95rem}
-  footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2.5rem}
-  footer h4{font-family:var(--label);font-weight:400;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;color:var(--sprout);margin:0 0 1rem}
-  footer ul{list-style:none;margin:0;padding:0;display:grid;gap:.55rem}
-  footer a{text-decoration:none}
-  footer a:hover{color:#fff;text-decoration:underline}
-  footer .socials{display:flex;gap:.6rem;margin-top:1.5rem}
-  footer .socials a{width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(255,255,255,.2);display:grid;place-items:center}
-  footer .socials a:hover{background:rgba(255,255,255,.08)}
-  footer .socials svg{width:18px;height:18px}
-  footer .bottom a{text-decoration:underline}
-  footer .bottom{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:3.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.12);font-size:.85rem;opacity:.75}
-  .bigword{font-family:var(--display);font-size:clamp(3rem,10.2vw,9.6rem);line-height:.85;color:rgba(245,239,227,.06);margin-top:3rem;white-space:nowrap;overflow:hidden;user-select:none}
-
-  /* Apparition au défilement */
-  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1)}
-  .reveal.in{opacity:1;transform:none}
-
-  /* Responsive */
-  @media (max-width:1180px){
-    .nav ul{display:none}
-    .burger{display:grid}
-    .nav.open ul{
-      display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--paper);
-      padding:.5rem 24px 1.5rem;gap:0;border-bottom:1px solid var(--line);box-shadow:0 24px 30px -24px rgba(29,42,32,.35);
-      max-height:calc(100dvh - 120px);overflow-y:auto
-    }
-    .nav.open ul li a{display:block;padding:.95rem 0;font-size:1.15rem;border-bottom:1px solid var(--line)}
-    .nav.open ul li a::after{display:none}
-    .nav.open .menu-cta{display:block;padding-top:1.2rem}
-    .nav.open .menu-cta a.btn{display:flex;justify-content:center;border-bottom:2px solid var(--ink);color:var(--paper)}
-  }
-  @media (max-width:1020px){
-    section{padding:clamp(4rem,8vw,6rem) 0}
-    .hero{padding-top:2.5rem}
-    .hero .wrap,.how-grid,.visit-grid,.letter .box{grid-template-columns:minmax(0,1fr)}
-    .shopfront{aspect-ratio:16/9}
-    .aisle.big{grid-column:span 3;min-height:360px}
-    .aisle.card{grid-column:span 2}
-    .scale-card{order:-1}
-    .mosaic{grid-template-columns:1fr 1fr;grid-template-rows:230px 230px 230px}
-    .mosaic .m1{grid-row:span 2}
-    .svc-grid{grid-template-columns:1fr 1fr}
-    .news{grid-template-columns:1fr 1fr}
-    .news .post:first-child{grid-column:span 2}
-    .visit-grid .plaque{margin-bottom:1rem}
-    footer .cols{grid-template-columns:1fr 1fr}
-  }
-  @media (max-width:760px){
-    .aisle.card{grid-column:span 6;flex-direction:row;align-items:center}
-    .aisle.card .ph{width:42%;flex:none;aspect-ratio:1}
-    .aisle.card .txt{padding:.4rem 1rem}
-    .aisle.big{grid-column:span 6;min-height:320px}
-    .aisle.wide{flex-direction:column}
-    .aisle.wide .ph{width:100%;min-height:220px}
-    .aisle.wide .txt{padding:1.2rem .9rem}
-  }
-  @media (max-width:640px){
-    body{font-size:16px}
-    .wrap{width:calc(100% - 32px)}
-    section{padding:3.5rem 0}
-    h2{font-size:clamp(1.9rem,8.4vw,2.6rem)}
-    .section-head{margin-bottom:1.8rem;gap:1rem}
-    .section-head p{font-size:1rem}
-    .infobar{font-size:.8rem}
-    .infobar .addr{display:none}
-    .nav .wrap{height:66px}
-    .logo img{height:44px}
-    .icon-btn{width:42px;height:42px}
-    .nav .actions{gap:.5rem}
-    .nav .actions > .btn{display:none}
-    .hero{padding:1.8rem 0 2.5rem}
-    .hero h1{font-size:clamp(2.35rem,11.5vw,3.2rem);margin:1rem 0 1.1rem}
-    .hero .wrap{gap:2.2rem}
-    .shopfront{aspect-ratio:4/4.4;border-radius:26px}
-    .hero .lead{font-size:1.06rem}
-    .hero .ctas{flex-direction:column;align-items:stretch;margin-top:1.6rem;width:100%}
-    .hero .ctas .btn{justify-content:center}
-    .proofs{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:2rem;width:100%}
-    .proof{flex-direction:column;align-items:flex-start;gap:.2rem;font-size:.8rem}
-    .proof b{font-size:1.6rem}
-    .round{width:34%;left:-6px;bottom:-24px;border-width:5px}
-    .hang{font-size:.7rem}
-    .hang b{font-size:.9rem}
-    .hang.h1{right:2%;top:30%}
-    .hang.h2{right:2%;bottom:-18px}
-    .shopfront .sign{font-size:.66rem}
-    .marquee .track{font-size:1.15rem;padding:.7rem 0}
-    .aisle.over .txt{padding:1.4rem}
-    .aisle.over h3{font-size:1.6rem}
-    .aisle.card .ph{width:38%}
-    .aisle.card h3{font-size:1.2rem}
-    .aisle.card p{font-size:.9rem}
-    .how{border-radius:28px;margin:0 8px}
-    .scale-card{padding:1.1rem;border-radius:24px}
-    .scale-card .caption{flex-direction:column;align-items:stretch}
-    .scale-card .caption .btn{justify-content:center}
-    .step button{grid-template-columns:42px 1fr;padding:.8rem .9rem;gap:.8rem}
-    .step .n{width:42px;height:42px;font-size:1.15rem}
-    .step strong{font-size:1.1rem}
-    .how-notes{grid-template-columns:1fr;margin-top:2.2rem;gap:1.2rem}
-    .filters{flex-wrap:nowrap;overflow-x:auto;margin:0 -16px;padding:0 16px 4px;scrollbar-width:none;width:calc(100% + 32px)}
-    .filters::-webkit-scrollbar{display:none}
-    .chip{flex:none}
-    .makers{grid-template-columns:1fr;gap:12px}
-    .maker:nth-child(n){rotate:0deg}
-    .mosaic{grid-template-columns:1fr 1fr;grid-template-rows:260px 160px 160px;gap:10px}
-    .mosaic .m1{grid-column:span 2;grid-row:auto}
-    .mosaic figcaption{font-size:.66rem;left:8px;bottom:8px}
-    /* carrousels horizontaux */
-    .svc-grid,.news{
-      display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:82%;gap:12px;
-      overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:0 16px 10px;scroll-padding:0 16px;scrollbar-width:none
-    }
-    .svc-grid::-webkit-scrollbar,.news::-webkit-scrollbar{display:none}
-    .svc,.post{scroll-snap-align:start}
-    .news .post:first-child{grid-column:auto}
-    .section-head .btn{padding:.7em 1.1em;font-size:.92rem}
-    .plaque{rotate:-1deg}
-    .plaque .in{padding:1.5rem 1rem 1.3rem}
-    .plaque .num{width:64px;height:64px;font-size:1.2rem;left:-10px;top:-20px}
-    .hours td{font-size:.95rem}
-    .letter .box{padding:2rem 1.4rem;border-radius:24px}
-    .letter .box::after{inset:8px;border-radius:18px}
-    .letter form{flex-direction:column;border-radius:20px}
-    .letter .btn{justify-content:center}
-    footer{padding-top:3rem}
-    footer .cols{grid-template-columns:1fr 1fr;gap:2rem 1rem}
-    footer .cols > div:first-child{grid-column:span 2}
-    footer .bottom{flex-direction:column;gap:.4rem}
-  }
-  @media (max-width:380px){
-    .infobar .meta{display:none}
-  }
-  @media (max-width:360px){
-    .hours td{font-size:.88rem}
-    .proof{font-size:.74rem}
-    .hero h1{font-size:2.15rem}
-    .proof b{font-size:1.35rem}
-    .aisle.card{flex-direction:column;align-items:stretch}
-    .aisle.card .ph{width:100%;aspect-ratio:16/10}
-    .aisle.card .txt{padding:1rem .6rem .8rem}
-    footer .cols{grid-template-columns:1fr}
-    footer .cols > div:first-child{grid-column:auto}
-  }
-  @media (prefers-reduced-motion:reduce){
-    *,*::before,*::after{animation:none!important;transition:none!important}
-    .reveal{opacity:1;transform:none}
-  }
-</style>
+<link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-
 <!-- Motifs de remplissage des bocaux -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -480,9 +30,9 @@
 
 <div class="infobar">
   <div class="wrap">
-    <span class="status" id="status"><span class="dot"></span><span id="statusText">Ouvert tous les jours</span></span>
+    <span class="status" id="status"><span class="dot"></span><span id="statusText">Ouvert 7 jours sur 7</span></span>
     <span class="meta">
-      <a class="addr" href="https://www.google.com/maps/search/?api=1&query=134+rue+Pierre+Brossolette+93160+Noisy-le-Grand" target="_blank" rel="noopener">134, rue Pierre Brossolette · Noisy-le-Grand</a>
+      <a class="addr" href="/contact/">134, rue Pierre Brossolette · Noisy-le-Grand</a>
       <a href="tel:+33141675365">01 41 67 53 65</a>
     </span>
   </div>
@@ -490,30 +40,28 @@
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a class="logo" href="#top" aria-label="Simplement Vrac, accueil">
-      <img src="img/logo/logo.png" alt="Simplement Vrac, épicerie bio" width="256" height="88">
+    <a class="logo" href="/" aria-label="Simplement Vrac, accueil">
+      <img src="/img/logo/logo.png" alt="Simplement Vrac, épicerie bio" width="256" height="88">
     </a>
     <nav aria-label="Navigation principale">
       <ul id="menu">
-        <li><a href="#rayons">L'épicerie</a></li>
-        <li><a href="#vrac">Le vrac, c'est quoi ?</a></li>
-        <li><a href="#producteurs">Nos producteurs</a></li>
-        <li><a href="#actus">Actualités</a></li>
-        <li><a href="#venir">Nous trouver</a></li>
-        <li class="menu-cta"><a class="btn btn-primary" href="#services">Click &amp; collect</a></li>
+        <li><a href="/notre-epicerie/">L'épicerie</a></li>
+        <li><a href="/le-vrac/">Le vrac, c'est quoi ?</a></li>
+        <li><a href="/nos-producteurs/">Nos producteurs</a></li>
+        <li><a href="/actualites/">Actualités</a></li>
+        <li><a href="/contact/">Nous trouver</a></li>
+        <li class="menu-cta"><a class="btn btn-primary" href="https://www.simplement-vrac.fr/epicerie-en-ligne/" target="_blank" rel="noopener">Boutique en ligne</a></li>
       </ul>
     </nav>
     <div class="actions">
-      <a class="icon-btn" href="#" aria-label="Mon compte"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></a>
-      <a class="btn btn-primary" href="#services">Click &amp; collect</a>
+      <a class="icon-btn" href="https://www.simplement-vrac.fr/my-account/" target="_blank" rel="noopener" aria-label="Mon compte"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></a>
+      <a class="btn btn-primary" href="https://www.simplement-vrac.fr/epicerie-en-ligne/" target="_blank" rel="noopener">Boutique en ligne</a>
       <button class="icon-btn burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu" style="background:none;cursor:pointer;color:inherit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg></button>
     </div>
   </div>
 </header>
 
-<main id="top">
-
-  <!-- HERO -->
+<main>
   <section class="hero" style="padding-bottom:3rem">
     <div class="wrap">
       <div class="intro">
@@ -523,82 +71,53 @@
           <span class="line"><span><em class="hand">zéro déchet</em></span></span>
           <span class="line"><span>et locale.</span></span>
         </h1>
-        <p class="lead">Une épicerie de quartier où l'on vient avec ses bocaux, où l'on prend la juste quantité, et où l'on sait d'où vient chaque produit.</p>
+        <p class="lead">Plus de 2000 produits bio en circuit court, en vrac ou en contenants consignés, dans une épicerie de quartier où l'on vient avec ses bocaux.</p>
         <div class="ctas">
-          <a class="btn btn-primary" href="#venir">Venir à l'épicerie <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="btn btn-ghost" href="#vrac">Le vrac, comment ça marche ?</a>
+          <a class="btn btn-primary" href="/notre-epicerie/">Découvrir l'épicerie <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-ghost" href="/le-vrac/">Le vrac, c'est quoi ?</a>
         </div>
         <div class="proofs">
           <div class="proof"><b>95 %</b><span>de produits<br>bio</span></div>
-          <div class="proof"><b>20+</b><span>producteurs<br>partenaires</span></div>
-          <div class="proof"><b>0</b><span>emballage<br>jetable imposé</span></div>
+          <div class="proof"><b>2000+</b><span>produits<br>en rayon</span></div>
+          <div class="proof"><b>7/7</b><span>ouvert<br>tous les jours</span></div>
         </div>
       </div>
 
       <div class="front">
         <div class="shopfront">
-          <img class="hero-photo" src="img/photos/hero.jpg" alt="Grands bocaux en verre remplis de graines et de légumineuses, étiquetés, sur une étagère en bois" fetchpriority="high">
+          <img class="hero-photo" src="/img/boutique/interieur.jpg" alt="L'intérieur de l'épicerie Simplement Vrac : rayons en bois, silos de vrac et cagettes du primeur" fetchpriority="high">
           <div class="sign">Épicerie · Noisy-le-Grand</div>
         </div>
-        <figure class="round"><img src="img/photos/pains.jpg" alt="Pains bio rangés sur des étagères"></figure>
+        <figure class="round"><img src="/img/boutique/devanture.jpg" alt="La devanture de Simplement Vrac, rue Pierre Brossolette"></figure>
         <div class="hang h1"><b>Bocal oublié ?</b>On vous en prête un.</div>
         <div class="hang h2"><b>Pesé, rempli,</b>vous payez le contenu.</div>
       </div>
     </div>
   </section>
 
-  <div class="marquee" aria-hidden="true">
-    <div class="track" id="track">
-      <span>Lentilles corail</span><span>Farine de Seine-et-Marne</span><span>Yaourts en verre consigné</span><span>Café torréfié en Éthiopie</span><span>Pain bio de Santeny</span><span>Burrata d'Île-de-France</span><span>Bières de Pantin</span><span>Savons saponifiés à froid</span><span>Huile d'olive</span><span>Fruits et légumes de saison</span>
-    </div>
-  </div>
+  <div class="marquee" aria-hidden="true"><div class="track" id="track"><span>Pain bio de Belledonne</span><span>Yaourts Fromaville en verre consigné</span><span>Pâtes C.Q.F.D. de Seine-et-Marne</span><span>Café Terra Kahwa</span><span>Glaces Promis Juré</span><span>Burrata La Ottanta</span><span>Bières La Parisienne</span><span>Savons Arthur</span><span>Fruits et légumes de saison</span><span>Plus de 2000 produits bio</span></div></div>
 
-  <!-- RAYONS -->
-  <section id="rayons">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div><span class="kicker">L'épicerie</span><h2>Tout pour vos courses,<br>sans le suremballage.</h2></div>
-        <p>Du sec en vrac aux produits frais, en passant par la salle de bain : de quoi faire l'essentiel de vos courses au même endroit, avec la provenance et les kilomètres parcourus indiqués.</p>
+  <section id="epicerie">
+    <div class="wrap split">
+      <div class="prose reveal">
+        <span class="kicker">Notre épicerie</span>
+        <h2>Tout pour vos courses,<br>sans le suremballage.</h2>
+        <p>Simplement Vrac est une épicerie <strong>bio, vrac et locale</strong> au cœur du centre-ville de Noisy-le-Grand. Épicerie en vrac, primeur, fromagerie, produits frais, boissons, hygiène et cosmétiques : vous pouvez y faire l'essentiel de vos courses.</p>
+        <p>Sur chaque étiquette : la composition, les labels, la provenance et les kilomètres parcourus jusqu'à la boutique.</p>
+        <a class="btn btn-primary" href="/notre-epicerie/">Découvrir l'épicerie <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
-      <div class="aisles">
-        <article class="aisle big over reveal">
-          <img src="img/photos/vrac.jpg" alt="Étagères chargées de bocaux de fruits secs et de céréales" loading="lazy">
-          <div class="txt"><span class="num">01</span><h3>L'épicerie en vrac</h3>
-          <p>Céréales, légumineuses, pâtes, farines, fruits secs, café, thé, huiles… Servez-vous dans vos contenants ou en contenants consignés.</p></div>
-        </article>
-        <article class="aisle big over reveal">
-          <img src="img/photos/primeur.jpg" alt="Caisses en bois remplies de légumes frais : carottes, radis, salades" loading="lazy">
-          <div class="txt"><span class="num">02</span><h3>Primeur</h3>
-          <p>Fruits et légumes bio, de saison, choisis au plus près quand c'est possible.</p></div>
-        </article>
-        <article class="aisle card reveal">
-          <div class="ph"><img src="img/photos/fromagerie.jpg" alt="Vitrine de fromages français avec leurs étiquettes" loading="lazy"></div>
-          <div class="txt"><span class="num">03</span><h3>Fromagerie</h3><p>Fromages, mozzarella et burrata bio d'Île-de-France.</p></div>
-        </article>
-        <article class="aisle card reveal">
-          <div class="ph"><img src="img/photos/frais.jpg" alt="Bocaux en verre remplis de salades composées" loading="lazy"></div>
-          <div class="txt"><span class="num">04</span><h3>Frais &amp; plats cuisinés</h3><p>Yaourts en verre consigné, pâtes fraîches et plats de saison prêts à emporter.</p></div>
-        </article>
-        <article class="aisle card reveal">
-          <div class="ph"><img src="img/photos/boissons.jpg" alt="Bouteilles de vin couchées" loading="lazy"></div>
-          <div class="txt"><span class="num">05</span><h3>Boissons</h3><p>Vins de Gironde, bières de Pantin, infusions et pétillants à l'hibiscus.</p></div>
-        </article>
-        <article class="aisle wide reveal">
-          <div class="ph"><img src="img/photos/hygiene.jpg" alt="Pains de savon artisanaux empilés" loading="lazy"></div>
-          <div class="txt"><span class="num">06</span><h3>Hygiène, cosmétiques &amp; maison</h3>
-          <p>Savons à froid, shampoings solides, cosmétiques en bocaux consignés, bicarbonate, gourdes et brosses réutilisables. Prêts à l'emploi ou à fabriquer vous-même.</p>
-          <a class="btn btn-ghost" href="#actus">Nos recettes maison</a></div>
-        </article>
+      <div class="split-media reveal">
+        <div class="duo"><img src="/img/boutique/silos.jpg" alt="Silos de vrac remplis de céréales et de légumineuses" loading="lazy"><img src="/img/boutique/primeur.jpg" alt="Le rayon primeur et ses cagettes de fruits et légumes" loading="lazy"></div>
+        <div class="sticker" style="left:-14px;bottom:18%"><b>95 % bio</b>et le plus local possible</div>
       </div>
     </div>
   </section>
 
-  <!-- LE VRAC -->
-  <section class="how" id="vrac">
+  <section class="how" id="gestes">
     <div class="wrap">
       <div class="section-head reveal">
         <div><span class="kicker">Le vrac, c'est quoi ?</span><h2>Cinq gestes,<br>et c'est déjà une habitude.</h2></div>
-        <p>Première fois en vrac ? Rien de compliqué : on pèse le contenant vide, on le remplit, et vous ne payez que ce qu'il y a dedans. L'équipe est là pour vous guider.</p>
+        <p>Néophyte du vrac ? On pèse le contenant vide, on le remplit, et vous ne payez que ce qu'il y a dedans. Une autre façon de faire ses courses, bonne pour la planète et pour le porte-monnaie.</p>
       </div>
       <div class="how-grid">
         <ol class="steps" id="steps">
@@ -648,126 +167,92 @@
       </div>
       <div class="how-notes reveal">
         <div><b>La juste quantité</b>Une cuillère d'épices pour une recette, ou de quoi tenir le mois : c'est vous qui décidez.</div>
-        <div><b>Moins de déchets</b>Pas d'emballage superflu, et des contenants consignés quand le vrac ne s'y prête pas.</div>
-        <div><b>À votre rythme</b>Commencez par deux ou trois produits. Le zéro déchet se fait petit à petit.</div>
+        <div><b>Moins d'emballages</b>Pas d'emballage superflu, et des contenants consignés quand le vrac ne s'y prête pas.</div>
+        <div><b>Une origine connue</b>Des produits bio dont vous savez d'où ils viennent et combien de kilomètres ils ont parcouru.</div>
       </div>
     </div>
   </section>
 
-  <!-- PRODUCTEURS -->
   <section id="producteurs">
     <div class="wrap">
       <div class="section-head reveal">
-        <div><span class="kicker">Nos producteurs</span><h2>Ceux qui remplissent<br>nos bocaux.</h2></div>
-        <div class="filters" role="group" aria-label="Filtrer les producteurs">
-          <button class="chip" aria-pressed="true" data-f="all">Tous</button>
-          <button class="chip" aria-pressed="false" data-f="idf">Île-de-France</button>
-          <button class="chip" aria-pressed="false" data-f="fr">France</button>
-          <button class="chip" aria-pressed="false" data-f="eq">Commerce équitable</button>
+        <div><span class="kicker">Nos producteurs</span><h2>Ceux qui remplissent<br>nos rayons.</h2></div>
+        <p>Nous cherchons toujours les meilleurs producteurs pour vous proposer le top du bio et du local. Ils sont majoritairement français, et certains travaillent à quelques kilomètres de la boutique.</p>
+      </div>
+      <div class="logos reveal">
+        <a class="dk" href="/nos-producteurs/#fromaville" title="Fromaville"><img src="/img/producteurs/fromaville.png" alt="Fromaville" loading="lazy"></a>
+        <a href="/nos-producteurs/#belledonne" title="Belledonne"><span class="wordmark">Belledonne</span></a>
+        <a href="/nos-producteurs/#c-q-f-d" title="C.Q.F.D."><img src="/img/producteurs/cqfd.png" alt="C.Q.F.D." loading="lazy"></a>
+        <a class="dk" href="/nos-producteurs/#duchamps-a-ton-assiette" title="Duchamps à ton assiette"><img src="/img/producteurs/duchamps.png" alt="Duchamps à ton assiette" loading="lazy"></a>
+        <a href="/nos-producteurs/#la-parisienne" title="La Parisienne"><span class="wordmark">La Parisienne</span></a>
+        <a href="/nos-producteurs/#la-ottanta" title="La Ottanta"><img src="/img/producteurs/la-ottanta.png" alt="La Ottanta" loading="lazy"></a>
+        <a href="/nos-producteurs/#sacre-willy" title="Sacré Willy"><img src="/img/producteurs/sacre-willy.png" alt="Sacré Willy" loading="lazy"></a>
+        <a href="/nos-producteurs/#promis-jure" title="Promis Juré"><img src="/img/producteurs/promis-jure.png" alt="Promis Juré" loading="lazy"></a>
+        <a href="/nos-producteurs/#endro-cosmetiques" title="Endro Cosmétiques"><img src="/img/producteurs/endro.png" alt="Endro Cosmétiques" loading="lazy"></a>
+        <a href="/nos-producteurs/#chateau-la-brande" title="Château La Brande"><img src="/img/producteurs/chateau-la-brande.png" alt="Château La Brande" loading="lazy"></a>
+        <a href="/nos-producteurs/#le-temps-des-oliviers" title="Le Temps des Oliviers"><img src="/img/producteurs/le-temps-des-oliviers.png" alt="Le Temps des Oliviers" loading="lazy"></a>
+        <a href="/nos-producteurs/#pierre-tim" title="Pierre &amp; Tim"><img src="/img/producteurs/pierre-et-tim.png" alt="Pierre &amp; Tim" loading="lazy"></a>
+        <a href="/nos-producteurs/#pur-etc" title="Pur etc."><img src="/img/producteurs/pur-etc.png" alt="Pur etc." loading="lazy"></a>
+        <a href="/nos-producteurs/#loumae" title="Loumaë"><img src="/img/producteurs/loumae.png" alt="Loumaë" loading="lazy"></a>
+        <a href="/nos-producteurs/#nae-food" title="Naé Food"><img src="/img/producteurs/nae-food.png" alt="Naé Food" loading="lazy"></a>
+        <a href="/nos-producteurs/#savons-arthur" title="Savons Arthur"><img src="/img/producteurs/savons-arthur.png" alt="Savons Arthur" loading="lazy"></a>
+        <a href="/nos-producteurs/#gaiia" title="Gaiia"><img src="/img/producteurs/gaiia.png" alt="Gaiia" loading="lazy"></a>
+        <a href="/nos-producteurs/#kasana" title="Kasana"><img src="/img/producteurs/kasana.png" alt="Kasana" loading="lazy"></a>
+      </div>
+      <div style="margin-top:2rem;text-align:center" class="reveal"><a class="btn btn-ghost" href="/nos-producteurs/">Découvrir leurs histoires <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="founder reveal">
+        <figure><img src="/img/equipe/bruno.jpg" alt="Bruno, fondateur de Simplement Vrac, dans la boutique devant les silos de vrac" loading="lazy"><figcaption>Bruno · fondateur</figcaption></figure>
+        <div>
+          <span class="kicker">Derrière le comptoir</span>
+          <h2>Bruno, fondateur de Simplement Vrac.</h2>
+          <p>C'est lui qui vous accueille à la boutique, sélectionne les produits et va à la rencontre des producteurs.</p>
+          <p>Ses coups de cœur, les nouveautés et les dégustations à venir, il les partage chaque semaine en vidéo sur Instagram.</p>
+          <a class="btn btn-ghost" href="https://www.instagram.com/simplement_vrac" target="_blank" rel="noopener">Suivre @simplement_vrac <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
         </div>
       </div>
-      <div class="makers" id="makers"></div>
-      <p class="also reveal">Et aussi <b>Pierre &amp; Tim</b> (cookies), <b>Pur etc.</b> (plats de saison), <b>Loumaë</b> (céréales), <b>Naé Food</b> (hibiscus), <b>Savons Arthur</b> et <b>Gaiia</b> (savons), plus un voisin de Noisy pour le poivre de Kampot.</p>
     </div>
   </section>
 
-  <!-- AMBIANCE -->
-  <section class="mood" aria-labelledby="moodTitle">
+  <section id="actus" style="padding-top:0">
     <div class="wrap">
       <div class="section-head reveal">
-        <div><span class="kicker">Dans nos rayons</span><h2 id="moodTitle">Prenez le temps<br>de flâner.</h2></div>
-        <p>Du pain bio à la coupe, des épices au poids, des cagettes de saison : on vient pour la liste de courses, on repart avec une idée de recette.</p>
-      </div>
-      <div class="mosaic">
-        <figure class="m1 reveal"><img src="img/photos/servez-vous.jpg" alt="Une main ouvre un bocal de vrac sur un comptoir en bois" loading="lazy"><figcaption>Servez-vous</figcaption></figure>
-        <figure class="m2 reveal"><img src="img/photos/pains.jpg" alt="Pains au levain sur des étagères" loading="lazy"><figcaption>Pain bio à la coupe</figcaption></figure>
-        <figure class="m3 reveal"><img src="img/photos/epices.jpg" alt="Rangée de bocaux d'épices sur une étagère en bois" loading="lazy"><figcaption>Épices au poids</figcaption></figure>
-        <figure class="m4 reveal"><img src="img/photos/caisses.jpg" alt="Cagettes en bois remplies de fruits et légumes, avec étiquettes à la craie" loading="lazy"><figcaption>Le coin primeur</figcaption></figure>
-        <figure class="m5 reveal"><img src="img/photos/carottes.jpg" alt="Carottes et poireaux en botte" loading="lazy"><figcaption>De saison</figcaption></figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section class="services" id="services">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div><span class="kicker">Les services</span><h2>Plus simple qu'on ne le croit.</h2></div>
-        <p>Pas le temps de flâner dans les rayons ? Commandez, on prépare. Et pour le reste, on vous conseille.</p>
-      </div>
-      <div class="svc-grid">
-        <article class="svc reveal">
-          <div class="ph"><img src="img/photos/panier.jpg" alt="Cagette de fruits et légumes posée dans l'herbe" loading="lazy"></div>
-          <h3>Click &amp; collect</h3>
-          <p>Commandez en ligne, passez récupérer votre panier prêt en boutique.</p>
-          <a href="#">Commander <span aria-hidden="true">→</span></a>
-        </article>
-        <article class="svc reveal">
-          <div class="ph"><img src="img/photos/livraison.jpg" alt="Une personne porte un carton rempli de légumes" loading="lazy"></div>
-          <h3>Point de livraison</h3>
-          <p>Un point de retrait aux Richardets pour les habitants du quartier.</p>
-          <a href="#venir">En savoir plus <span aria-hidden="true">→</span></a>
-        </article>
-        <article class="svc reveal">
-          <div class="ph"><img src="img/photos/consigne.jpg" alt="Bouteilles en verre vides prêtes à être réutilisées" loading="lazy"></div>
-          <h3>La consigne</h3>
-          <p>Yaourts, cosmétiques, boissons : rapportez le verre, il repart pour un tour avec le Réseau Consigne.</p>
-          <a href="#">Le Réseau Consigne <span aria-hidden="true">→</span></a>
-        </article>
-        <article class="svc reveal">
-          <div class="ph"><img src="img/photos/atelier.jpg" alt="Mains qui travaillent de la farine sur un plan de travail" loading="lazy"></div>
-          <h3>Ateliers</h3>
-          <p>Savons et cosmétiques maison, cuisine végane, aromathérapie. Annoncés dans la lettre.</p>
-          <a href="#lettre">Être prévenu <span aria-hidden="true">→</span></a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ACTUALITÉS -->
-  <section id="actus">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div><span class="kicker">Actualités</span><h2>Du côté de l'épicerie.</h2></div>
-        <a class="btn btn-ghost" href="#">Tous les articles</a>
+        <div><span class="kicker">Nos actualités</span><h2>L'épicerie évolue<br>constamment.</h2></div>
+        <a class="btn btn-ghost" href="/actualites/">Toute l'actualité</a>
       </div>
       <div class="news">
-        <a class="post reveal" href="#">
-          <div class="art"><img src="img/photos/noel.jpg" alt="Présentoir de fêtes avec chocolats et bouteilles" loading="lazy"></div>
-          <div class="body"><time datetime="2025-11-18">18 novembre 2025</time><h3>Bon de commande de Noël 2025</h3><p style="color:var(--ink-soft);font-size:.97rem">Fromages, chocolats, vins : réservez votre panier de fêtes à l'avance.</p><span class="more">Lire l'article →</span></div>
+        <a class="post reveal" href="https://www.simplement-vrac.fr/2025/11/18/bon-de-commande-noel-2025/" target="_blank" rel="noopener" data-f="b">
+          <div class="art"><img src="/img/actus/bon-de-commande-noel-2025.jpg" alt="" loading="lazy"></div>
+          <div class="body"><time datetime="2025-11-18">18 novembre 2025</time><h3>Bon de commande Noël 2025</h3><p class="sum">Le bon de commande des fêtes est arrivé : réservez votre repas de fin d&#x27;année en boutique ou en ligne.</p><span class="more">Lire l'article <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></span></div>
         </a>
-        <a class="post reveal" href="#">
-          <div class="art"><img src="img/photos/farines.jpg" alt="Bocaux de farines, graines et légumineuses" loading="lazy"></div>
-          <div class="body"><time datetime="2025-03-28">28 mars 2025</time><h3>Remplacer le gluten en pâtisserie : le guide des substituts</h3><span class="more">Lire l'article →</span></div>
+        <a class="post reveal" href="https://www.simplement-vrac.fr/2025/03/28/remplacer-gluten-patisserie-guide-substituts/" target="_blank" rel="noopener" data-f="r">
+          <div class="art"><img src="/img/actus/remplacer-gluten-patisserie-guide-substituts.jpg" alt="" loading="lazy"></div>
+          <div class="body"><time datetime="2025-03-28">28 mars 2025</time><h3>Remplacer le gluten en pâtisserie : le guide des substituts</h3><p class="sum">Quelles farines choisir pour remplacer le blé dans vos gâteaux, et dans quelles proportions.</p><span class="more">Lire l'article <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></span></div>
         </a>
-        <a class="post reveal" href="#">
-          <div class="art"><img src="img/photos/chocolat.jpg" alt="Tablettes de chocolat noir" loading="lazy"></div>
-          <div class="body"><time datetime="2025-03-24">24 mars 2025</time><h3>Sunshine chocolats : le goût de l'équité</h3><span class="more">Lire l'article →</span></div>
+        <a class="post reveal" href="https://www.simplement-vrac.fr/2025/03/24/sunshine-chocolats-le-gout-de-lequite/" target="_blank" rel="noopener" data-f="p">
+          <div class="art"><img src="/img/actus/sunshine-chocolats-boutique.jpg" alt="" loading="lazy"></div>
+          <div class="body"><time datetime="2025-03-24">24 mars 2025</time><h3>Sunshine chocolats : le goût de l’équité</h3><p class="sum">Un chocolat aussi bon qu&#x27;équitable, à découvrir dans nos rayons.</p><span class="more">Lire l'article <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></span></div>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- VENIR -->
   <section id="venir" style="padding-top:0">
     <div class="wrap visit-grid">
       <div class="reveal">
-        <div class="plaque">
-          <span class="num">93</span>
-          <span class="screws"></span>
-          <div class="in">
-            <small>Noisy-le-Grand</small>
-            <strong>134, rue<br>Pierre Brossolette</strong>
-            <small>Centre-ville</small>
-          </div>
-        </div>
+        <div class="storefront" style="margin:0;box-shadow:0 30px 50px -30px rgba(0,0,0,.6)"><img src="/img/boutique/devanture.jpg" alt="La devanture de Simplement Vrac au 134, rue Pierre Brossolette" loading="lazy"></div>
       </div>
       <div class="reveal">
         <span class="kicker">Nous trouver</span>
-        <h2>Passez nous voir,<br>même sans bocal.</h2>
-        <table class="hours" id="hours" aria-label="Horaires d'ouverture">
+        <h2>134, rue<br>Pierre Brossolette.</h2>
+        <table class="hours" aria-label="Horaires d'ouverture">
           <tbody>
-            <tr data-days="1,2,3,4,5,6"><td>Du lundi au samedi</td><td>10h00 – 19h30</td></tr>
+            <tr data-days="1"><td>Lundi</td><td>12h00 – 19h00</td></tr>
+            <tr data-days="2,3,4,5,6"><td>Du mardi au samedi</td><td>10h00 – 19h30</td></tr>
             <tr data-days="0"><td>Dimanche</td><td>10h00 – 13h00</td></tr>
           </tbody>
         </table>
@@ -780,17 +265,16 @@
     </div>
   </section>
 
-  <!-- NEWSLETTER -->
   <div class="letter" id="lettre">
     <div class="wrap">
       <div class="box reveal">
         <div>
           <h2>Une petite lettre,<br>de temps en temps.</h2>
-          <p>Les ateliers à venir, les nouveaux produits, les bons plans et quelques recettes. Jamais plus d'une fois par mois.</p>
+          <p>Les événements, les nouveautés, les bons plans et quelques recettes, directement dans votre boîte mail.</p>
         </div>
         <div>
           <form id="nl" novalidate>
-            <label for="email" class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Votre adresse e-mail</label>
+            <label for="email" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Votre adresse e-mail</label>
             <input id="email" type="email" placeholder="votre@email.fr" autocomplete="email" required>
             <button class="btn btn-primary" type="submit">Je m'inscris</button>
           </form>
@@ -805,7 +289,7 @@
   <div class="wrap">
     <div class="cols">
       <div>
-        <a class="logo logo-badge" href="#top"><img src="img/logo/logo.png" alt="Simplement Vrac, épicerie bio" width="256" height="88" loading="lazy"></a>
+        <a class="logo logo-badge" href="/"><img src="/img/logo/logo.png" alt="Simplement Vrac, épicerie bio" width="256" height="88" loading="lazy"></a>
         <p style="margin-top:1rem;max-width:30ch">Épicerie bio, zéro déchet et locale. 134, rue Pierre Brossolette, 93160 Noisy-le-Grand.</p>
         <div class="socials">
           <a href="https://www.instagram.com/simplement_vrac" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
@@ -815,122 +299,22 @@
       </div>
       <div>
         <h4>L'épicerie</h4>
-        <ul><li><a href="#rayons">Nos rayons</a></li><li><a href="#producteurs">Nos producteurs</a></li><li><a href="#vrac">Le vrac, c'est quoi ?</a></li><li><a href="#actus">Actualités</a></li></ul>
+        <ul><li><a href="/notre-epicerie/">Notre épicerie</a></li><li><a href="/nos-producteurs/">Nos producteurs</a></li><li><a href="/le-vrac/">Le vrac, c'est quoi ?</a></li><li><a href="/actualites/">Actualités</a></li></ul>
       </div>
       <div>
-        <h4>Services</h4>
-        <ul><li><a href="#services">Click &amp; collect</a></li><li><a href="#">Mon compte</a></li><li><a href="#">Réseau Consigne</a></li><li><a href="#venir">Contact</a></li></ul>
+        <h4>Pratique</h4>
+        <ul><li><a href="/contact/">Horaires et accès</a></li><li><a href="https://www.simplement-vrac.fr/epicerie-en-ligne/" target="_blank" rel="noopener">Boutique en ligne</a></li><li><a href="https://www.simplement-vrac.fr/my-account/" target="_blank" rel="noopener">Mon compte</a></li><li><a href="https://reseauconsigne.gogocarto.fr/map#/fiche/SIMPLEMENT-VRAC/qy/" target="_blank" rel="noopener">Réseau Consigne</a></li></ul>
       </div>
       <div>
         <h4>Informations</h4>
-        <ul><li><a href="#">Mentions légales</a></li><li><a href="#">CGV</a></li><li><a href="#">Politique de confidentialité</a></li><li><a href="#">Médiateur de la consommation</a></li></ul>
+        <ul><li><a href="https://www.simplement-vrac.fr/cgv-mentions-legales/" target="_blank" rel="noopener">CGV et mentions légales</a></li><li><a href="https://www.simplement-vrac.fr/politique-de-confidentialite/" target="_blank" rel="noopener">Politique de confidentialité</a></li><li><a href="https://www.simplement-vrac.fr/wp-content/uploads/2023/09/Epiciers-de-France-Affiche-Mediateur-consommation.pdf" target="_blank" rel="noopener">Médiateur de la consommation</a></li><li><a href="/credits/">Crédits photos</a></li></ul>
       </div>
     </div>
-    <div class="bottom"><span>© Simplement Vrac · Photos d'illustration <a href="CREDITS.md">Unsplash</a></span><span>Paiement sécurisé · Visa · Mastercard · Stripe</span></div>
+    <div class="bottom"><span>© Simplement Vrac</span><span>Paiement sécurisé · Visa · Mastercard · Stripe</span></div>
     <div class="bigword" aria-hidden="true">Simplement Vrac</div>
   </div>
 </footer>
 
-<script>
-  // ---------- Ouvert / fermé ----------
-  const hours = {0:[600,780]}; for (let d=1; d<=6; d++) hours[d] = [600,1170];
-  const fmt = m => `${Math.floor(m/60)}h${String(m%60).padStart(2,'0')}`;
-  const now = new Date(), day = now.getDay(), min = now.getHours()*60 + now.getMinutes();
-  const [o, c] = hours[day];
-  const st = document.getElementById('status'), stt = document.getElementById('statusText');
-  if (min >= o && min < c) stt.textContent = `Ouvert maintenant · jusqu'à ${fmt(c)}`;
-  else {
-    st.classList.add('closed');
-    const nextDay = min < o ? day : (day + 1) % 7;
-    const label = nextDay === day ? "aujourd'hui" : 'demain';
-    stt.textContent = `Fermé · ouvre ${label} à ${fmt(hours[nextDay][0])}`;
-  }
-  document.querySelectorAll('#hours tr').forEach(tr => {
-    if (tr.dataset.days.split(',').includes(String(day))) tr.classList.add('today');
-  });
-
-  // ---------- Les 5 gestes ----------
-  const steps = [...document.querySelectorAll('.step')];
-  const fillRect = document.getElementById('fillRect');
-  const reading = document.getElementById('scaleReading');
-  const caption = document.getElementById('scaleCaption');
-  const ticket = document.getElementById('ticket');
-  const jarG = document.getElementById('scaleJar');
-  const states = [
-    {fill:150, read:'-,--- kg', jar:'translateY(-40px)', ticket:0, cap:"Un bocal propre, un sac en tissu, une boîte : tout fait l'affaire."},
-    {fill:150, read:'0,350 kg', jar:'none', ticket:0, cap:"Le bocal vide pèse 350 g. On le note, c'est la tare."},
-    {fill:30, read:'- - -', jar:'translateY(-40px)', ticket:0, cap:"Remplissez au silo : une poignée, un kilo, comme vous voulez."},
-    {fill:30, read:'0,500 kg', jar:'none', ticket:0, cap:"850 g sur la balance, moins 350 g de bocal : 500 g de lentilles."},
-    {fill:30, read:'0,500 kg', jar:'none', ticket:1, cap:"Vous payez 500 g de lentilles. Le bocal, lui, rentre à la maison."},
-  ];
-  let cur = 0;
-  function go(i){
-    cur = i;
-    steps.forEach((s, j) => s.classList.toggle('on', j === i));
-    const s = states[i];
-    fillRect.style.transform = `translateY(${s.fill}px)`;
-    reading.textContent = s.read;
-    caption.textContent = s.cap;
-    jarG.style.transform = s.jar;
-    ticket.setAttribute('opacity', s.ticket);
-    document.getElementById('nextStep').textContent = i === 4 ? 'Recommencer' : 'Étape suivante';
-  }
-  steps.forEach((s, i) => s.querySelector('button').addEventListener('click', () => go(i)));
-  document.getElementById('nextStep').addEventListener('click', () => go((cur + 1) % 5));
-  go(0);
-
-  // ---------- Producteurs ----------
-  const makers = [
-    ['Fromaville','Saint-Ouen (93)','Yaourts en verre consigné et fromages','idf'],
-    ['Belledonne','Santeny (94)','Pain bio et local','idf'],
-    ['Duchamps à ton assiette','Vert-Saint-Denis (77)','Farines et pâtes','idf'],
-    ['C.Q.F.D.','Villenoy (77)','Pâtes et sauces','idf'],
-    ['La Parisienne','Pantin (93)','Bières artisanales','idf'],
-    ['La Ottanta','Île-de-France','Mozzarella et burrata bio','idf'],
-    ['Sacré Willy','Alpes','Produits laitiers collectés à moins de 25 km','fr'],
-    ['Promis Juré','Hauts-de-France','Crèmes glacées et sorbets','fr'],
-    ['Endro Cosmétiques','Lannion (22)','Cosmétiques bio en bocaux consignés','fr'],
-    ['Château La Brande','Saillans (33)','Vins','fr'],
-    ['Le Temps des Oliviers','Lyon · Méditerranée','Huiles d\'olive, olives, vinaigres','fr'],
-    ['Kasana','Burkina Faso · Ouganda','Fruits secs et vanille','eq'],
-    ['Terra Kahwa','Éthiopie','Cafés verts, torréfiés et moulus','eq'],
-  ];
-  const badge = {idf:'Île-de-France', fr:'France', eq:'Équitable'};
-  const pin = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12zm0-9a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>';
-  document.getElementById('makers').innerHTML = makers.map(([n, w, p, f]) =>
-    `<article class="maker reveal" data-f="${f}"><div class="top"><span class="where">${pin}${w}</span><span class="badge">${badge[f]}</span></div><h3>${n}</h3><p>${p}</p></article>`
-  ).join('');
-  document.querySelectorAll('.chip').forEach(chip => chip.addEventListener('click', () => {
-    document.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', c === chip));
-    const f = chip.dataset.f;
-    document.querySelectorAll('.maker').forEach(m => m.classList.toggle('hide', f !== 'all' && m.dataset.f !== f));
-  }));
-
-  // ---------- Bandeau défilant (doublé pour une boucle continue) ----------
-  const track = document.getElementById('track'); track.innerHTML += track.innerHTML;
-
-  // ---------- Apparitions ----------
-  const io = new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-  }), {threshold:.12});
-  document.querySelectorAll('.reveal').forEach((el, i) => { el.style.transitionDelay = `${(i % 4) * 70}ms`; io.observe(el); });
-
-  // ---------- Navigation ----------
-  const nav = document.getElementById('nav');
-  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 10), {passive:true});
-  const burger = document.getElementById('burger');
-  burger.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    burger.setAttribute('aria-expanded', open);
-  });
-  document.querySelectorAll('#menu a').forEach(a => a.addEventListener('click', () => { nav.classList.remove('open'); burger.setAttribute('aria-expanded', false); }));
-
-  // ---------- Lettre ----------
-  document.getElementById('nl').addEventListener('submit', e => {
-    e.preventDefault();
-    const v = document.getElementById('email').value.trim();
-    document.getElementById('nlMsg').textContent = /.+@.+\..+/.test(v) ? 'Merci, à très vite dans votre boîte !' : 'Il manque une adresse e-mail valide.';
-  });
-</script>
+<script src="/assets/js/main.js"></script>
 </body>
 </html>
