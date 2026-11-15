@@ -1,0 +1,170 @@
+{
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/le-vrac-cest-quoi{/}?",
+      "destination": "/le-vrac/",
+      "permanent": true
+    },
+    {
+      "source": "/bon-de-commande-noel-2025{/}?",
+      "destination": "/actualites/bon-de-commande-noel-2025/",
+      "permanent": true
+    },
+    {
+      "source": "/remplacer-gluten-patisserie-guide-substituts{/}?",
+      "destination": "/actualites/remplacer-gluten-patisserie-guide-substituts/",
+      "permanent": true
+    },
+    {
+      "source": "/sunshine-chocolats-le-gout-de-lequite{/}?",
+      "destination": "/actualites/sunshine-chocolats-le-gout-de-lequite/",
+      "permanent": true
+    },
+    {
+      "source": "/bon-de-commande-noel-2024{/}?",
+      "destination": "/actualites/bon-de-commande-noel-2024/",
+      "permanent": true
+    },
+    {
+      "source": "/les-bienfaits-du-miel-un-tresor-naturel-a-redecouvrir{/}?",
+      "destination": "/actualites/les-bienfaits-du-miel-un-tresor-naturel-a-redecouvrir/",
+      "permanent": true
+    },
+    {
+      "source": "/le-gingembre{/}?",
+      "destination": "/actualites/le-gingembre/",
+      "permanent": true
+    },
+    {
+      "source": "/le-curcuma-frais{/}?",
+      "destination": "/actualites/le-curcuma-frais/",
+      "permanent": true
+    },
+    {
+      "source": "/la-mandarine{/}?",
+      "destination": "/actualites/la-mandarine/",
+      "permanent": true
+    },
+    {
+      "source": "/bon-de-commande-noel-20223{/}?",
+      "destination": "/actualites/bon-de-commande-noel-20223/",
+      "permanent": true
+    },
+    {
+      "source": "/veloute-de-potimarron-au-zeste-de-bergamote-et-creme-de-coco{/}?",
+      "destination": "/actualites/veloute-de-potimarron-au-zeste-de-bergamote-et-creme-de-coco/",
+      "permanent": true
+    },
+    {
+      "source": "/pomelo-sweetie{/}?",
+      "destination": "/actualites/pomelo-sweetie/",
+      "permanent": true
+    },
+    {
+      "source": "/linfusion-de-menthe-verte-une-tradition-ancestrale-aux-multiples-vertus{/}?",
+      "destination": "/actualites/linfusion-de-menthe-verte-une-tradition-ancestrale-aux-multi/",
+      "permanent": true
+    },
+    {
+      "source": "/bienfaits-infusion-thym{/}?",
+      "destination": "/actualites/bienfaits-infusion-thym/",
+      "permanent": true
+    },
+    {
+      "source": "/la-melisse-pour-les-petits-maux-de-lhiver{/}?",
+      "destination": "/actualites/la-melisse-pour-les-petits-maux-de-lhiver/",
+      "permanent": true
+    },
+    {
+      "source": "/born-in-ppm{/}?",
+      "destination": "/actualites/born-in-ppm/",
+      "permanent": true
+    },
+    {
+      "source": "/reportage-sur-les-achats-en-epicerie-vrac{/}?",
+      "destination": "/actualites/reportage-sur-les-achats-en-epicerie-vrac/",
+      "permanent": true
+    },
+    {
+      "source": "/les-bienfaits-des-differentes-varietes-de-the-pour-la-sante{/}?",
+      "destination": "/actualites/les-bienfaits-des-differentes-varietes-de-the-pour-la-sante/",
+      "permanent": true
+    },
+    {
+      "source": "/le-the-glace{/}?",
+      "destination": "/actualites/le-the-glace/",
+      "permanent": true
+    },
+    {
+      "source": "/association-des-commercants-noisy-coeur-de-ville{/}?",
+      "destination": "/actualites/association-des-commercants-noisy-coeur-de-ville/",
+      "permanent": true
+    },
+    {
+      "source": "/tomate-ancienne-vrac-noisy-le-grand{/}?",
+      "destination": "/actualites/tomate-ancienne-vrac-noisy-le-grand/",
+      "permanent": true
+    },
+    {
+      "source": "/savon-noir-jardinier-bio-potager-sain{/}?",
+      "destination": "/actualites/savon-noir-jardinier-bio-potager-sain/",
+      "permanent": true
+    },
+    {
+      "source": "/ail-noir-alternative-originale-a-l-ail-blanc{/}?",
+      "destination": "/actualites/ail-noir-alternative-originale-a-l-ail-blanc/",
+      "permanent": true
+    },
+    {
+      "source": "/jus-de-fruits-pajottenlander-bio{/}?",
+      "destination": "/actualites/jus-de-fruits-pajottenlander-bio/",
+      "permanent": true
+    },
+    {
+      "source": "/finaliste-reussir-seine-saint-denis{/}?",
+      "destination": "/actualites/finaliste-reussir-seine-saint-denis/",
+      "permanent": true
+    },
+    {
+      "source": "/litalie-sinstalle-dans-votre-magasin-bio{/}?",
+      "destination": "/actualites/litalie-sinstalle-dans-votre-magasin-bio/",
+      "permanent": true
+    },
+    {
+      "source": "/horaires-douvertures{/}?",
+      "destination": "/actualites/horaires-douvertures/",
+      "permanent": true
+    },
+    {
+      "source": "/bon-de-commande-noel{/}?",
+      "destination": "/actualites/bon-de-commande-noel/",
+      "permanent": true
+    },
+    {
+      "source": "/oeuf-extra-frais-bio-de-la-ferme-degreville{/}?",
+      "destination": "/actualites/oeuf-extra-frais-bio-de-la-ferme-degreville/",
+      "permanent": true
+    },
+    {
+      "source": "/les-ateliers-de-stephanie-et-bruno{/}?",
+      "destination": "/actualites/les-ateliers-de-stephanie-et-bruno/",
+      "permanent": true
+    },
+    {
+      "source": "/la-recette-de-la-moutarde{/}?",
+      "destination": "/actualites/la-recette-de-la-moutarde/",
+      "permanent": true
+    },
+    {
+      "source": "/les-evenements-du-mois{/}?",
+      "destination": "/actualites/les-evenements-du-mois/",
+      "permanent": true
+    },
+    {
+      "source": "/producteur-engage{/}?",
+      "destination": "/actualites/producteur-engage/",
+      "permanent": true
+    }
+  ]
+}

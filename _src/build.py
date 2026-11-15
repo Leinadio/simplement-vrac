@@ -223,11 +223,11 @@ def footer():
       </div>
       <div>
         <h4>Pratique</h4>
-        <ul><li><a href="/contact/">Horaires et accès</a></li><li><a href="{ESHOP}" target="_blank" rel="noopener">Boutique en ligne</a></li><li><a href="{SHOP}/my-account/" target="_blank" rel="noopener">Mon compte</a></li><li><a href="https://reseauconsigne.gogocarto.fr/map#/fiche/SIMPLEMENT-VRAC/qy/" target="_blank" rel="noopener">Réseau Consigne</a></li></ul>
+        <ul><li><a href="/contact/">Contact, horaires et accès</a></li><li><a href="{ESHOP}" target="_blank" rel="noopener">Boutique en ligne</a></li><li><a href="{SHOP}/my-account/" target="_blank" rel="noopener">Mon compte</a></li><li><a href="https://reseauconsigne.gogocarto.fr/map#/fiche/SIMPLEMENT-VRAC/qy/" target="_blank" rel="noopener">Réseau Consigne</a></li></ul>
       </div>
       <div>
         <h4>Informations</h4>
-        <ul><li><a href="{SHOP}/cgv-mentions-legales/" target="_blank" rel="noopener">CGV et mentions légales</a></li><li><a href="{SHOP}/politique-de-confidentialite/" target="_blank" rel="noopener">Politique de confidentialité</a></li><li><a href="{SHOP}/wp-content/uploads/2023/09/Epiciers-de-France-Affiche-Mediateur-consommation.pdf" target="_blank" rel="noopener">Médiateur de la consommation</a></li><li><a href="/credits/">Crédits photos</a></li></ul>
+        <ul><li><a href="/cgv-mentions-legales/">CGV / Mentions générales</a></li><li><a href="/politique-de-confidentialite/">Politique de confidentialité</a></li><li><a href="/docs/Epiciers-de-France-Affiche-Mediateur-consommation.pdf" target="_blank" rel="noopener">Médiateur de la consommation</a></li><li><a href="/credits/">Crédits photos</a></li></ul>
       </div>
     </div>
     <div class="bottom"><span>© Simplement Vrac</span><span>Paiement sécurisé · Visa · Mastercard · Stripe</span></div>
@@ -273,9 +273,9 @@ def post_card(p, cat=True, lazy=True):
     lz = ' loading="lazy"' if lazy else ""
     img = f'<img src="/{p["img"]}" alt=""{lz}>' if p.get("img") else ""
     badge = f'<span class="cat">{CATS[p["cat"]]}</span>' if cat else ""
-    return f"""        <a class="post reveal" href="{p["link"]}" target="_blank" rel="noopener" data-f="{p["cat"]}">
+    return f"""        <a class="post reveal" href="/actualites/{p["url"]}/" data-f="{p["cat"]}">
           <div class="art">{badge}{img}</div>
-          <div class="body"><time datetime="{p["date"]}">{fdate(p["date"])}</time><h3>{escape(p["title"])}</h3><p class="sum">{escape(p["sum"])}</p><span class="more">Lire l'article {I["ext"]}</span></div>
+          <div class="body"><time datetime="{p["date"]}">{fdate(p["date"])}</time><h3>{escape(p["title"])}</h3><p class="sum">{escape(p["sum"])}</p><span class="more">Lire l'article →</span></div>
         </a>"""
 
 def logos_wall():
@@ -778,13 +778,78 @@ def credits():
     body = page_hero("Crédits photos", "Crédits", "Crédits photos.", "D'où viennent les images de ce site.") + """
   <section style="padding-top:1rem">
     <div class="wrap prose" style="max-width:760px">
-      <p>Les photos de la boutique, les logos des producteurs et les images des actualités proviennent du site actuel de Simplement Vrac (simplement-vrac.fr). Certaines images d'articles sont issues de banques d'images sous licence de Simplement Vrac.</p>
+      <p>Les photos de la boutique, les logos des producteurs, les articles et leurs images, ainsi que les pages légales proviennent du site actuel de Simplement Vrac (simplement-vrac.fr). Certaines images d'articles sont issues de banques d'images sous licence de Simplement Vrac.</p>
       <p>La photo de Bruno est extraite d'une vidéo publiée sur le compte Instagram @simplement_vrac.</p>
       <p>Le logo est celui de Simplement Vrac.</p>
     </div>
   </section>
 """
     return page("", "Crédits photos · Simplement Vrac", "Crédits des photos du site Simplement Vrac.", body)
+
+# ================================================================ ARTICLES
+import re as _re, unicodedata as _ud
+def _norm(t):
+    t = _ud.normalize("NFD", _re.sub(r"<[^>]+>", "", t)).encode("ascii", "ignore").decode().lower()
+    return _re.sub(r"[^a-z0-9]+", "", t)
+
+def article(i):
+    p = POSTS[i]
+    content = read(f"articles/{p['url']}.html")
+    m = _re.match(r"\s*<h[2-4]>(.*?)</h[2-4]>\n?", content)
+    if m and _norm(m.group(1)) == _norm(p["title"]):
+        content = content[m.end():]
+    newer = POSTS[i - 1] if i > 0 else None
+    older = POSTS[i + 1] if i + 1 < len(POSTS) else None
+    nav = ""
+    if older: nav += f'<a class="prev" href="/actualites/{older["url"]}/"><small>← Article précédent</small>{escape(older["title"])}</a>'
+    else: nav += "<span></span>"
+    if newer: nav += f'<a class="next" href="/actualites/{newer["url"]}/"><small>Article suivant →</small>{escape(newer["title"])}</a>'
+    band = f'\n      <div class="band article-band"><img src="/{p["img"]}" alt="" fetchpriority="high"></div>' if p.get("img") else ""
+    body = f"""  <section class="page-hero article-hero">
+    <div class="wrap">
+      <div class="crumbs"><a href="/">Accueil</a> · <a href="/actualites/">Actualités</a></div>
+      <span class="tag">{CATS[p["cat"]]}</span>
+      <h1>{escape(p["title"])}</h1>
+      <p class="lead"><time datetime="{p["date"]}">{fdate(p["date"])}</time></p>{band}
+    </div>
+  </section>
+
+  <section style="padding-top:clamp(1.5rem,3vw,2.5rem)">
+    <div class="wrap">
+      <article class="article">
+{content}
+      </article>
+      <nav class="article-nav" aria-label="Autres articles">{nav}</nav>
+      <div style="text-align:center;margin-top:2.5rem"><a class="btn btn-ghost" href="/actualites/">Toutes les actualités</a></div>
+    </div>
+  </section>
+
+{NEWSLETTER}"""
+    return page("actus", f"{p['title']} · Simplement Vrac", p["sum"], body)
+
+LEGAL = {
+    "cgv-mentions-legales": ("CGV / Mentions générales", "Conditions générales de vente et mentions légales du site Simplement Vrac."),
+    "politique-de-confidentialite": ("Politique de confidentialité", "Politique de confidentialité et de protection des données de Simplement Vrac."),
+}
+def legal(slug_):
+    title, desc = LEGAL[slug_]
+    body = f"""  <section class="page-hero">
+    <div class="wrap">
+      <div class="crumbs"><a href="/">Accueil</a> · {title}</div>
+      <span class="tag">Informations légales</span>
+      <h1>{title}</h1>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <article class="article legal">
+{read(f"legal/{slug_}.html")}
+      </article>
+    </div>
+  </section>
+"""
+    return page("", f"{title} · Simplement Vrac", desc, body)
 
 # ================================================================ écriture
 PAGES = {
@@ -795,10 +860,22 @@ PAGES = {
     "actualites/index.html": actualites,
     "contact/index.html": contact,
     "credits/index.html": credits,
+    "cgv-mentions-legales/index.html": lambda: legal("cgv-mentions-legales"),
+    "politique-de-confidentialite/index.html": lambda: legal("politique-de-confidentialite"),
 }
+for _i, _p in enumerate(POSTS):
+    PAGES[f"actualites/{_p['url']}/index.html"] = (lambda i=_i: article(i))
 if __name__ == "__main__":
     for path, fn in PAGES.items():
         out = os.path.join(ROOT, path)
         os.makedirs(os.path.dirname(out), exist_ok=True)
         open(out, "w", encoding="utf-8").write(fn())
         print("écrit", path)
+    redirects = [{"source": "/le-vrac-cest-quoi{/}?", "destination": "/le-vrac/", "permanent": True}]
+    for p in POSTS:
+        old = "/" + p["link"].rstrip("/").split("/")[-1]
+        if "%" in old:  # adresse encodée (emoji) : ignorée
+            continue
+        redirects.append({"source": old + "{/}?", "destination": f"/actualites/{p['url']}/", "permanent": True})
+    json.dump({"trailingSlash": True, "redirects": redirects}, open(os.path.join(ROOT, "vercel.json"), "w"), ensure_ascii=False, indent=2)
+    print("écrit vercel.json,", len(redirects), "redirections")
